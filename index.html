@@ -419,6 +419,18 @@
                 setView('game');
             };
 
+            const renderView = () => {
+                switch(view) {
+                    case 'game': return <GameSimulation key={gameResetTrigger} setView={setView} />;
+                    case 'wizard': return <Wizard setView={setView} />;
+                    case 'comparison': return <Comparison />;
+                    case 'carb_quiz': return <CarbQuiz setView={setView} />;
+                    case 'info': return <Info />;
+                    case 'about': return <About />;
+                    default: return <GameSimulation key={gameResetTrigger} setView={setView} />;
+                }
+            };
+
             return (
                 <div className="min-h-screen flex flex-col bg-slate-950 text-slate-100 relative">
                     <header className="bg-slate-900 border-b border-cyan-500/30 sticky top-0 z-50 shadow-[0_4px_25px_rgba(0,0,0,0.9)]">
@@ -820,7 +832,7 @@
                             <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-cyan-500 via-rose-500 to-yellow-500"></div>
                             
                             <div className="text-center space-y-3">
-                                <div className="inline-flex p-4 bg-amber-955 border border-amber-500/50 rounded-full text-amber-400 mb-2 animate-bounce">
+                                <div className="inline-flex p-4 bg-amber-900 border border-amber-500/50 rounded-full text-amber-400 mb-2 animate-bounce">
                                     <CustomIcon name="award" className="w-12 h-12 text-amber-400" />
                                 </div>
                                 <h3 className="text-3xl md:text-4xl font-black text-amber-400 orbitron-font text-glow-gold">הסימולציה הושלמה בהצלחה</h3>
@@ -1041,7 +1053,7 @@
                     {step === 2 && (
                         <div className="space-y-6">
                             <h3 className="text-2xl font-bold text-slate-100">שלב 3: שפת ממשק</h3>
-                            <p className="text-slate-355 text-sm font-semibold">האם למשתמש חובה לקבל ממשק מלא בעברית, או שהוא יכול להסתדר עם אנגלית טכנית בסיסית?</p>
+                            <p className="text-slate-300 text-sm font-semibold">האם למשתמש חובה לקבל ממשק מלא בעברית, או שהוא יכול להסתדר עם אנגלית טכנית בסיסית?</p>
                             
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <button 
@@ -1070,7 +1082,7 @@
                     {step === 3 && (
                         <div className="space-y-6">
                             <h3 className="text-2xl font-bold text-slate-100">שלב 4: פעילות במים ושחייה</h3>
-                            <p className="text-slate-355 text-sm font-semibold">האם את/ה שוחה באופן קבוע או עוסק/ת בספורט מים שבו חשוב שהמשאבה תישאר מחוברת ותהיה עמידה למים?</p>
+                            <p className="text-slate-300 text-sm font-semibold">האם את/ה שוחה באופן קבוע או עוסק/ת בספורט מים שבו חשוב שהמשאבה תישאר מחוברת ותהיה עמידה למים?</p>
                             
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <button 
@@ -1446,32 +1458,32 @@
                                 <tr>
                                     <td className="p-4 font-bold text-slate-200">עמידות במים ושחייה</td>
                                     <td className="p-4 text-amber-400">עמיד במים (נתזים בלבד, לא לשחייה)</td>
-                                    <td className="p-4 text-rose-455 font-bold">לא עמידה (חובה לנתק)</td>
-                                    <td className="p-4 text-emerald-450 font-bold">עמידה מלאה (מתאימה לשחייה)</td>
+                                    <td className="p-4 text-rose-500 font-bold">לא עמידה (חובה לנתק)</td>
+                                    <td className="p-4 text-emerald-400 font-bold">עמידה מלאה (מתאימה לשחייה)</td>
                                 </tr>
                                 <tr>
                                     <td className="p-4 font-bold text-slate-200">שפת ממשק המכשיר</td>
-                                    <td className="p-4 text-emerald-455 font-bold">עברית מלאה</td>
-                                    <td className="p-4 text-rose-455 font-bold">אנגלית בלבד</td>
-                                    <td className="p-4 text-rose-455 font-bold">אנגלית בלבד</td>
+                                    <td className="p-4 text-emerald-500 font-bold">עברית מלאה</td>
+                                    <td className="p-4 text-rose-500 font-bold">אנגלית בלבד</td>
+                                    <td className="p-4 text-rose-500 font-bold">אנגלית בלבד</td>
                                 </tr>
                                 <tr>
                                     <td className="p-4 font-bold text-slate-200">סוג סוללה</td>
-                                    <td className="p-4 text-emerald-455 font-bold">סוללת AA רגילה (להחלפה מהירה)</td>
+                                    <td className="p-4 text-emerald-500 font-bold">סוללת AA רגילה (להחלפה מהירה)</td>
                                     <td className="p-4 text-amber-400">סוללה נטענת מובנית (דורש כבל)</td>
                                     <td className="p-4 text-amber-400">סוללה נטענת בשלט (פוד מוחלף)</td>
                                 </tr>
                                 <tr>
                                     <td className="p-4 font-bold text-slate-200">בולוס מפוצל במצב אוטומטי</td>
                                     <td className="p-4 text-rose-450 font-bold">לא נתמך</td>
-                                    <td className="p-4 text-emerald-455 font-bold">כן נתמך (ייחודי לטנדם)</td>
+                                    <td className="p-4 text-emerald-500 font-bold">כן נתמך (ייחודי לטנדם)</td>
                                     <td className="p-4 text-rose-450 font-bold">לא נתמך</td>
                                 </tr>
                                 <tr>
                                     <td className="p-4 font-bold text-slate-200">גיל מינימלי מאושר</td>
                                     <td className="p-4 font-bold">גיל 7 ומעלה</td>
                                     <td className="p-4 font-bold">גיל 6 ומעלה</td>
-                                    <td className="p-4 font-bold text-emerald-455">גיל 2 ומעלה</td>
+                                    <td className="p-4 font-bold text-emerald-500">גיל 2 ומעלה</td>
                                 </tr>
                                 <tr>
                                     <td className="p-4 font-bold text-slate-200">סנסור מתממשק</td>
