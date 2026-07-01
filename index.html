@@ -28,10 +28,12 @@
             color: #f3f4f6;
             overflow-x: hidden;
             background-image: 
-                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(244, 63, 94, 0.15) 0px, transparent 50%),
+                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(244, 63, 94, 0.1) 0px, transparent 50%),
                 linear-gradient(rgba(17, 24, 39, 0.98), rgba(3, 7, 18, 1));
             background-attachment: fixed;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         
         .orbitron-font {
@@ -45,23 +47,23 @@
                 linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
         }
 
-        /* Opaque Glassmorphism for razor-sharp text readability */
+        /* Solid background containers for razor-sharp, zero-blur readability */
         .glass-panel {
-            background: rgba(15, 23, 42, 0.95); /* Solid high contrast dark background */
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+            background-color: #0b0f19; /* Solid high contrast dark background */
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
         }
 
         .glass-panel-neon-cyan {
-            background: rgba(15, 23, 42, 0.95);
-            border: 2px solid rgba(6, 182, 212, 0.6);
-            box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
+            background-color: #0b0f19;
+            border: 2px solid rgba(6, 182, 212, 0.8);
+            box-shadow: 0 0 25px rgba(6, 182, 212, 0.25);
         }
 
         .glass-panel-neon-magenta {
-            background: rgba(15, 23, 42, 0.95);
-            border: 2px solid rgba(244, 63, 94, 0.6);
-            box-shadow: 0 0 20px rgba(244, 63, 94, 0.2);
+            background-color: #0b0f19;
+            border: 2px solid rgba(244, 63, 94, 0.8);
+            box-shadow: 0 0 25px rgba(244, 63, 94, 0.25);
         }
 
         /* Glowing text & borders */
@@ -78,51 +80,35 @@
         }
 
         .border-glow-cyan:hover {
-            border-color: rgba(6, 182, 212, 0.9);
-            box-shadow: 0 0 15px rgba(6, 182, 212, 0.5);
+            border-color: rgba(6, 182, 212, 1);
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.6);
         }
 
         .border-glow-magenta:hover {
-            border-color: rgba(244, 63, 94, 0.9);
-            box-shadow: 0 0 15px rgba(244, 63, 94, 0.5);
+            border-color: rgba(244, 63, 94, 1);
+            box-shadow: 0 0 20px rgba(244, 63, 94, 0.6);
         }
 
         .glow-button-cyan {
-            background: linear-gradient(135deg, #06b6d4, #0891b2);
-            border: 1px solid rgba(6, 182, 212, 0.8);
-            box-shadow: 0 0 12px rgba(6, 182, 212, 0.5);
+            background: linear-gradient(135deg, #0891b2, #06b6d4);
+            border: 2px solid rgba(6, 182, 212, 0.9);
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.6);
             transition: all 0.3s ease;
         }
         .glow-button-cyan:hover {
-            box-shadow: 0 0 25px rgba(6, 182, 212, 0.9);
+            box-shadow: 0 0 30px rgba(6, 182, 212, 1);
             transform: translateY(-2px);
         }
 
         .glow-button-magenta {
-            background: linear-gradient(135deg, #f43f5e, #e11d48);
-            border: 1px solid rgba(244, 63, 94, 0.8);
-            box-shadow: 0 0 12px rgba(244, 63, 94, 0.5);
+            background: linear-gradient(135deg, #e11d48, #f43f5e);
+            border: 2px solid rgba(244, 63, 94, 0.9);
+            box-shadow: 0 0 15px rgba(244, 63, 94, 0.6);
             transition: all 0.3s ease;
         }
         .glow-button-magenta:hover {
-            box-shadow: 0 0 25px rgba(244, 63, 94, 0.9);
+            box-shadow: 0 0 30px rgba(244, 63, 94, 1);
             transform: translateY(-2px);
-        }
-
-        /* Scanline animation */
-        .scanlines {
-            position: relative;
-            overflow: hidden;
-        }
-        .scanlines::before {
-            content: " ";
-            display: block;
-            position: absolute;
-            top: 0; left: 0; bottom: 0; right: 0;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%);
-            z-index: 2;
-            background-size: 100% 4px;
-            pointer-events: none;
         }
 
         .cyber-badge {
@@ -141,11 +127,12 @@
             transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Razor sharp image styling */
+        /* Razor sharp image rendering and styling */
         .crisp-img {
             image-rendering: -webkit-optimize-contrast;
             image-rendering: crisp-edges;
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
         }
     </style>
 </head>
@@ -371,7 +358,7 @@
                 { q: "כיצד יש להתייחס לקלח תירס המוגש בארוחה?", options: ["כירק נשנוש ללא ערך פחמימתי", "כתחליף למנת הפחמימה (כגון אורז/לחם)", "כקינוח", "כשומן"], correct: 1, exp: "קלח תירס מהווה את מנת הפחמימה בארוחה." },
                 { q: "אילו תוספות בסלט ירקות מעלות משמעותית את כמות הפחמימות בו?", options: ["תוספות כגון בטטה, קרוטונים, חמוציות ופירות", "אין תוספות המשפיעות בסלט", "עלים ירוקים ומלפפונים", "שמן זית ולימון"], correct: 0, exp: "רכיבים אלו עשירים בפחמימות וסוכרים." },
                 { q: "כיצד מעריכים פחמימות במרק ירקות כתומים טחון (בטטה/דלעת)?", options: ["לא מחשבים, זה נוזל", "מחשבים לפי כמות הירק העמילני (כ-15 גרם לקערה ממוצעת)", "מחשבים רק אם מוסיפים קרוטונים", "נחשב כירק חופשי"], correct: 1, exp: "הבטטה והדלעת הן פחמימות, והטחינה אף עשויה להאיץ את הספיגה." },
-                { q: "מהו המקור העיקרי לעומס פחמימות בארוחת המבורגר מלאה?", options: ["הקציצה", "הירקות", "השילוב של לחמניה גדולה וצ'יפס", "הרטבים"], correct: 2, exp: "מדובר בשני מקורות פחמימה משמעותיים הנאכלים יחד." },
+                { q: "מהו המרכיב התורם את רוב הפחמימות בארוחת המבורגר מלאה?", options: ["הקציצה", "הירקות", "השילוב של לחמניה גדולה וצ'יפס", "הרטבים"], correct: 2, exp: "מדובר בשני מקורות פחמימה משמעותיים הנאכלים יחד." },
                 { q: "איזו כמות אבטיח מכילה מנת פחמימה אחת (כ-15 גרם)?", options: ["פלח גדול מאוד", "חצי אבטיח", "משולש דק או כוס קוביות אחת (כ-200 גרם)", "צלחת עמוקה מלאה"], correct: 2, exp: "זו הכמות המכילה כ-15 גרם פחמימה." },
                 { q: "מהו המרכיב התורם את רוב הפחמימות בארוחת חומוס במסעדה?", options: ["ממרח החומוס", "השמן", "הפיתות (כל פיתה = 3-4 מנות פחמימה)", "הבצל והחמוצים"], correct: 2, exp: "הפיתות הן המקור העיקרי והמשמעותי ביותר לפחמימות בארוחה זו." }
             ]
@@ -412,6 +399,7 @@
         function App() {
             const [view, setView] = useState('game'); 
             const [muted, setMuted] = useState(false);
+            const [gameResetTrigger, setGameResetTrigger] = useState(0);
 
             useEffect(() => {
                 audio.muted = muted;
@@ -425,23 +413,17 @@
                 }
             };
 
-            const renderView = () => {
-                switch(view) {
-                    case 'game': return <GameSimulation setView={setView} />;
-                    case 'wizard': return <Wizard setView={setView} />;
-                    case 'comparison': return <Comparison />;
-                    case 'carb_quiz': return <CarbQuiz setView={setView} />;
-                    case 'info': return <Info />;
-                    case 'about': return <About />;
-                    default: return <GameSimulation setView={setView} />;
-                }
+            const handleGoToGame = () => {
+                audio.playSelect();
+                setGameResetTrigger(prev => prev + 1); // trigger restart!
+                setView('game');
             };
 
             return (
-                <div className="min-h-screen flex flex-col bg-slate-950 text-slate-100 scanlines relative">
-                    <header className="bg-slate-905 border-b border-cyan-500/30 sticky top-0 z-50 shadow-[0_4px_20px_rgba(0,0,0,0.8)]">
+                <div className="min-h-screen flex flex-col bg-slate-950 text-slate-100 relative">
+                    <header className="bg-slate-900 border-b border-cyan-500/30 sticky top-0 z-50 shadow-[0_4px_25px_rgba(0,0,0,0.9)]">
                         <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-                            <div className="flex items-center gap-3 cursor-pointer" onClick={() => { audio.playSelect(); setView('game'); }}>
+                            <div className="flex items-center gap-3 cursor-pointer" onClick={handleGoToGame}>
                                 <div className="text-cyan-400 animate-pulse">
                                     <CustomIcon name="activity" className="w-8 h-8" />
                                 </div>
@@ -451,7 +433,7 @@
                                 </div>
                             </div>
                             <nav className="hidden md:flex gap-6 text-sm font-semibold">
-                                <button onClick={() => { audio.playClick(); setView('game'); }} className={`hover:text-cyan-400 transition-colors uppercase tracking-wider ${view === 'game' ? 'text-cyan-400 text-glow-cyan' : 'text-slate-300'}`}>הסימולטור</button>
+                                <button onClick={handleGoToGame} className={`hover:text-cyan-400 transition-colors uppercase tracking-wider ${view === 'game' ? 'text-cyan-400 text-glow-cyan' : 'text-slate-300'}`}>הסימולטור</button>
                                 <button onClick={() => { audio.playClick(); setView('wizard'); }} className={`hover:text-cyan-400 transition-colors uppercase tracking-wider ${view === 'wizard' ? 'text-cyan-400 text-glow-cyan' : 'text-slate-300'}`}>מחשבון התאמה</button>
                                 <button onClick={() => { audio.playClick(); setView('comparison'); }} className={`hover:text-cyan-400 transition-colors uppercase tracking-wider ${view === 'comparison' ? 'text-cyan-400 text-glow-cyan' : 'text-slate-300'}`}>השוואה טכנית</button>
                                 <button onClick={() => { audio.playClick(); setView('carb_quiz'); }} className={`hover:text-cyan-400 transition-colors uppercase tracking-wider ${view === 'carb_quiz' ? 'text-cyan-400 text-glow-cyan' : 'text-slate-300'}`}>תרגול פחמימות</button>
@@ -463,12 +445,14 @@
                                 <button onClick={toggleMute} className="text-slate-400 hover:text-cyan-400 transition-colors">
                                     <CustomIcon name={muted ? "volumeX" : "volume2"} className="w-5 h-5" />
                                 </button>
-                                <div className="md:hidden text-xs bg-cyan-950/90 border border-cyan-500/50 text-cyan-400 px-3 py-1.5 rounded-md font-bold cyber-badge">תפריט</div>
+                                <button onClick={handleGoToGame} className="hidden sm:inline-block bg-cyan-950 hover:bg-cyan-900 border border-cyan-500/50 text-cyan-400 font-bold py-1.5 px-4 rounded-xl text-xs cyber-badge">
+                                    הפעל סימולטור מחדש
+                                </button>
                             </div>
                         </div>
                         
                         <div className="md:hidden flex justify-around bg-slate-900 py-2.5 text-xs text-slate-300 border-t border-cyan-500/20">
-                             <button onClick={() => { audio.playClick(); setView('game'); }} className={view === 'game' ? 'text-cyan-400 font-bold' : ''}>הסימולטור</button>
+                             <button onClick={handleGoToGame} className={view === 'game' ? 'text-cyan-400 font-bold' : ''}>הסימולטור</button>
                              <button onClick={() => { audio.playClick(); setView('wizard'); }} className={view === 'wizard' ? 'text-cyan-400 font-bold' : ''}>התאמה</button>
                              <button onClick={() => { audio.playClick(); setView('comparison'); }} className={view === 'comparison' ? 'text-cyan-400 font-bold' : ''}>השוואה</button>
                              <button onClick={() => { audio.playClick(); setView('carb_quiz'); }} className={view === 'carb_quiz' ? 'text-cyan-400 font-bold' : ''}>פחמימות</button>
@@ -487,7 +471,7 @@
                                 <h4 className="text-rose-400 font-bold mb-2 flex items-center justify-center gap-2">
                                     <CustomIcon name="alert" className="w-5 h-5 text-rose-400" /> הבהרה משפטית ורפואית
                                 </h4>
-                                <p className="text-xs leading-relaxed text-slate-350 text-right">
+                                <p className="text-xs leading-relaxed text-slate-350 text-right font-medium">
                                     המידע והסימולציה המופיעים באתר זה נועדו להרחבת הידע הכללי והמחשת החשיבות של התאמה אישית בלבד. אין לראות באתר או במשחק המצורף המלצה רפואית, חוות דעת מקצועית או תחליף לייעוץ של רופא/ה מומחה/ית או צוות רפואי מוסמך.
                                     <strong> בכל מקרה של שינוי טיפולי או החלטה על מכשור רפואי יש להיוועץ עם הצוות הרפואי המטפל בך.</strong>
                                 </p>
@@ -509,6 +493,17 @@
             const [satisfaction, setSatisfaction] = useState(100);
             const [glucose, setGlucose] = useState(110); 
             const [freedom, setFreedom] = useState(100);
+
+            // Reset callback when reset trigger updates
+            const handleStartGame = () => {
+                audio.playSelect();
+                setGameState('selection');
+                setSelectedPumps([]);
+                setCurrentPump(null);
+                setSatisfaction(100);
+                setGlucose(110);
+                setFreedom(100);
+            };
 
             // Scenarios data with generated PNG illustrations
             const scenarios = {
@@ -580,16 +575,6 @@
                 ]
             };
 
-            const handleStartGame = () => {
-                audio.playSelect();
-                setGameState('selection');
-                setSelectedPumps([]);
-                setCurrentPump(null);
-                setSatisfaction(100);
-                setGlucose(110);
-                setFreedom(100);
-            };
-
             const handleSelectPump = (pumpId) => {
                 audio.playSelect();
                 setCurrentPump(pumpId);
@@ -602,7 +587,6 @@
                 const activeScenarios = scenarios[currentPump];
                 const currentEffect = activeScenarios[currentScenarioIndex];
                 
-                // Apply stats changes
                 setSatisfaction(prev => Math.max(0, prev + currentEffect.satisfactionEffect));
                 setGlucose(prev => prev + currentEffect.glucoseEffect);
                 setFreedom(prev => Math.max(0, prev + currentEffect.freedomEffect));
@@ -755,10 +739,16 @@
                             <div className="absolute top-0 left-0 w-full h-1.5 bg-cyan-400"></div>
                             
                             {/* Scenario Title Header */}
-                            <div className="flex items-center gap-4 border-b border-slate-800 pb-4">
-                                <div className="text-2xl font-bold text-cyan-400">
+                            <div className="flex justify-between items-center border-b border-slate-800 pb-4">
+                                <div className="text-lg md:text-xl font-bold text-cyan-400">
                                     שאלת הדילמה מתוך יום הניסיון של {pumpsData.find(p => p.id === currentPump)?.name}
                                 </div>
+                                <button 
+                                    onClick={handleStartGame}
+                                    className="bg-slate-900 hover:bg-slate-800 border border-slate-750 text-slate-400 hover:text-cyan-400 text-xs px-3 py-1.5 rounded-xl transition-all"
+                                >
+                                    התחל מחדש ↺
+                                </button>
                             </div>
                             
                             {/* Main Grid: Illustration Left, Content Right */}
@@ -830,11 +820,11 @@
                             <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-cyan-500 via-rose-500 to-yellow-500"></div>
                             
                             <div className="text-center space-y-3">
-                                <div className="inline-flex p-4 bg-rose-950/60 border border-rose-500/50 rounded-full text-rose-400 mb-2">
-                                    <CustomIcon name="xCircle" className="w-12 h-12" />
+                                <div className="inline-flex p-4 bg-amber-955 border border-amber-500/50 rounded-full text-amber-400 mb-2 animate-bounce">
+                                    <CustomIcon name="award" className="w-12 h-12 text-amber-400" />
                                 </div>
-                                <h3 className="text-3xl md:text-4xl font-black text-rose-400 orbitron-font text-glow-magenta">SYSTEM OVERLOAD: NO PERFECT PUMP</h3>
-                                <p className="text-slate-200 text-lg font-bold">ניסית את כל שלוש המשאבות. אף אחת מהן לא סיפקה פתרון מושלם ללא תקלות!</p>
+                                <h3 className="text-3xl md:text-4xl font-black text-amber-400 orbitron-font text-glow-gold">הסימולציה הושלמה בהצלחה</h3>
+                                <p className="text-slate-200 text-lg font-bold">אז איך כדאי לבחור את המשאבה המתאימה ביותר עבורך?</p>
                             </div>
 
                             {/* Game Stats Summary */}
@@ -857,28 +847,28 @@
                             </div>
 
                             {/* The Lesson */}
-                            <div className="space-y-4 max-w-2xl mx-auto text-center">
-                                <h4 className="text-2xl font-black text-slate-100">אז באיזו משאבה כדאי לבחור?</h4>
-                                <p className="text-slate-200 leading-relaxed text-sm md:text-base font-bold">
-                                    התשובה פשוטה: <strong className="text-cyan-400">אין משאבה אחת מושלמת לכולם, אך יש משאבה שהכי מתאימה לך!</strong>
+                            <div className="space-y-4 max-w-2xl mx-auto text-center bg-slate-950/80 border border-slate-850 p-6 rounded-2xl">
+                                <h4 className="text-xl md:text-2xl font-black text-slate-100">מסקנת הניסוי: אין משאבה מושלמת לכולם!</h4>
+                                <p className="text-slate-300 leading-relaxed text-sm font-semibold">
+                                    כפי שראית, כל אחת מהמשאבות מגיעה עם מערכת חסרונות והתאמות שיכולות להשפיע דרמטית על נוחות המשתמש. לכן, אין לבחור משאבה רק לפי המותג, אלא <strong className="text-cyan-400">יש לבצע התאמה אישית מדויקת לסגנון החיים שלך!</strong>
                                 </p>
-                                <p className="text-slate-300 text-xs leading-relaxed font-semibold">
-                                    לו רק ליאו היה משתמש ב-<strong>PumpSelector</strong> לפני הבחירה, הוא היה מזין מראש את המכשיר הנייד שלו, את האהבה שלו לשחייה, ואת העובדה שהוא אוכל ארוחות מורכבות, ומקבל מראש את המשאבה המותאמת ביותר עבורו!
+                                <p className="text-slate-400 text-xs leading-relaxed font-semibold mt-2">
+                                    במקום לגלות את המגבלות הללו בדרך הקשה ביום-יום, מחשבון ה-<strong>PumpSelector</strong> מאפשר לך להזין מראש את גילך, שפת הממשק הרצויה, מכשיר הטלפון, הרגלי השחייה וצרכי הבולוס המפוצל - ומציג מייד את המשאבה המותאמת ביותר עבורך עם ציון אחוז תאימות מדויק!
                                 </p>
                             </div>
 
                             <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
                                 <button 
                                     onClick={() => { audio.playSelect(); setView('wizard'); }} 
-                                    className="glow-button-cyan text-slate-950 font-black py-4 px-8 rounded-full text-sm tracking-wider"
+                                    className="glow-button-cyan text-slate-950 font-black py-4 px-8 rounded-full text-sm tracking-wider shadow-lg"
                                 >
-                                    עבור למחשבון התאמת משאבה
+                                    התחל התאמה אישית במחשבון
                                 </button>
                                 <button 
                                     onClick={handleStartGame} 
                                     className="bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700 font-bold py-4 px-8 rounded-full text-sm transition-all"
                                 >
-                                    שחק שוב
+                                    שחק בסימולטור מחדש ↺
                                 </button>
                             </div>
                         </div>
@@ -1051,7 +1041,7 @@
                     {step === 2 && (
                         <div className="space-y-6">
                             <h3 className="text-2xl font-bold text-slate-100">שלב 3: שפת ממשק</h3>
-                            <p className="text-slate-350 text-sm font-semibold">האם למשתמש חובה לקבל ממשק מלא בעברית, או שהוא יכול להסתדר עם אנגלית טכנית בסיסית?</p>
+                            <p className="text-slate-355 text-sm font-semibold">האם למשתמש חובה לקבל ממשק מלא בעברית, או שהוא יכול להסתדר עם אנגלית טכנית בסיסית?</p>
                             
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <button 
@@ -1116,14 +1106,14 @@
                                     onClick={() => { audio.playClick(); setWantsAppControl(true); setStep(5); }}
                                     className="p-6 rounded-2xl border border-slate-800 bg-slate-900 hover:border-cyan-500/50 hover:bg-cyan-950/20 text-center transition-all"
                                 >
-                                    <h4 className="font-bold text-lg text-slate-200">כן, קריטי לי לשלוט מהנייד</h4>
+                                    <h4 className="font-bold text-lg text-slate-200 font-bold">כן, קריטי לי לשלוט מהנייד</h4>
                                     <p className="text-xs text-slate-400 mt-2 font-medium">דיסקרטיות מקסימלית בניהול בולוסים</p>
                                 </button>
                                 <button 
                                     onClick={() => { audio.playClick(); setWantsAppControl(false); setStep(5); }}
                                     className="p-6 rounded-2xl border border-slate-800 bg-slate-900 hover:border-cyan-500/50 hover:bg-cyan-950/20 text-center transition-all"
                                 >
-                                    <h4 className="font-bold text-lg text-slate-200">לא חובה שליטה מהנייד</h4>
+                                    <h4 className="font-bold text-lg text-slate-200 font-bold">לא חובה שליטה מהנייד</h4>
                                     <p className="text-xs text-slate-400 mt-2 font-medium">אין לי בעיה ללחוץ על המכשיר עצמו</p>
                                 </button>
                             </div>
@@ -1390,7 +1380,7 @@
                                     btnClass += "border-rose-500 bg-rose-950 text-rose-400 font-bold";
                                     icon = <CustomIcon name="xCircle" className="w-5 h-5 text-rose-400" />;
                                 } else {
-                                    btnClass += "border-slate-900 bg-slate-950 text-slate-600 cursor-not-allowed opacity-40";
+                                    btnClass += "border-slate-900 bg-slate-950 text-slate-650 cursor-not-allowed opacity-40";
                                 }
                             }
                             return (
@@ -1456,7 +1446,7 @@
                                 <tr>
                                     <td className="p-4 font-bold text-slate-200">עמידות במים ושחייה</td>
                                     <td className="p-4 text-amber-400">עמיד במים (נתזים בלבד, לא לשחייה)</td>
-                                    <td className="p-4 text-rose-450 font-bold">לא עמידה (חובה לנתק)</td>
+                                    <td className="p-4 text-rose-455 font-bold">לא עמידה (חובה לנתק)</td>
                                     <td className="p-4 text-emerald-450 font-bold">עמידה מלאה (מתאימה לשחייה)</td>
                                 </tr>
                                 <tr>
