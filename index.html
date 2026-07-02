@@ -575,6 +575,7 @@
             // Reset callback when reset trigger updates
             const handleStartGame = () => {
                 audio.playSelect();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
                 setGameState('selection');
                 setSelectedPumps([]);
                 setCurrentPump(null);
@@ -609,10 +610,10 @@
                 ],
                 tandem: [
                     {
-                        title: "כולם במים ורק אני על החוף",
-                        description: "חם בטירוף, הגענו לבריכה וכל החברים קופצים ישר למים. אני מת לקפוץ איתם, אבל המשאבה שלי מחוברת בצינורית והיא לא עמידה למים בשחייה. מה אני עושה עכשיו? אם אני אנתק אותה ליותר משעה, זלפת האינסולין תיפסק והסוכר שלי יזנק לשמים. אם אשאר בחוץ, אני סתם אתייבש בחוף לבדי.",
-                        con: "משאבת Tandem t:slim X2 אינה עמידה למים לשחייה, ודורשת ניתוק פיזי מוחלט של הצינורית בזמן שהייה במים, מה שמפסיק את זלפת האינסולין.",
-                        resultText: "נשארתי על כיסא הנוח בחוץ בזמן שכולם השתוללו במים. הסוכר התחיל לעלות והרגשתי מבודד ומותש.",
+                        title: "כולם במים ורק אני מחוץ לבריכה",
+                        description: "חם בטירוף, הגענו לבריכה וכל החברים קופצים ישר למים. אני מת לקפוץ איתם, אבל המשאבה שלי מחוברת בצינורית והיא לא עמידה למים בשחייה. מה אני עושה עכשיו? אם אני אנתק אותה ליותר משעה, הזלפת האינסולין תיפסק והסוכר שלי יזנק לשמים. אם אשאר בחוץ, אני סתם אתייבש מחוץ לבריכה לבדי.",
+                        con: "משאבת Tandem t:slim X2 אינה עמידה למים לשחייה, ודורשת ניתוק פיזי מוחלט של הצינורית בזמן שהייה במים, מה שמפסיק את הזלפת האינסולין.",
+                        resultText: "לבסוף ליאו התנתק מהמשאבה, נכנס למים והתחבר שוב כעבור שעתיים כאשר הסוכר היה כבר 300",
                         glucoseEffect: 120, 
                         satisfactionEffect: -35,
                         freedomEffect: -40,
@@ -622,7 +623,7 @@
                         title: "אזהרה: 5% סוללה, ואין מטען",
                         description: "נסעתי לצימר לסוף שבוע וכרגע מוצאי שבת. אני בודק את המשאבה ומגלה שיש לה 5% סוללה בלבד. אני מנסה לחפש סוללה להחלפה אבל נזכר שהיא עובדת רק על סוללה נטענת מובנית. מה אני עושה עכשיו? שכחתי את כבל המיקרו-USB ואת המטען הייעודי בבית, ואין לאף אחד סביבי מטען מתאים.",
                         con: "הטנדם פועלת על סוללה נטענת מובנית. אין אפשרות להחליף סוללה בשטח - חייבים חיבור פיזי לשקע חשמלי.",
-                        resultText: "נאלצתי לקטוע את הנופש ולחזור הביתה מוקדם מהצפוי בגלל חרדת סוללה ריקה ומחסור במטען תואם.",
+                        resultText: "נאלצתי לקטוע את הנופש ולחזור הביתה מוקדם מהצפוי בגלל סוללה ריקה ומחסור במטען תואם.",
                         glucoseEffect: 80,
                         satisfactionEffect: -25,
                         freedomEffect: -25,
@@ -655,6 +656,7 @@
 
             const handleSelectPump = (pumpId) => {
                 audio.playSelect();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
                 setCurrentPump(pumpId);
                 setCurrentScenarioIndex(0);
                 setGameState('scenario');
@@ -662,6 +664,7 @@
 
             const handleNextScenario = () => {
                 audio.playClick();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
                 const activeScenarios = scenarios[currentPump];
                 const currentEffect = activeScenarios[currentScenarioIndex];
                 
@@ -868,7 +871,7 @@
 
                             {/* Dialogue Box */}
                             <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl relative shadow-inner">
-                                <p className="text-sm text-cyan-400 font-bold mb-2">ליאו חושב לעצמו:</p>
+                                <p className="text-sm text-cyan-400 font-bold mb-2">מה קרה בפועל:</p>
                                 <p className="text-slate-100 text-sm font-bold italic">
                                     " {scenarios[currentPump][currentScenarioIndex].resultText} "
                                 </p>
